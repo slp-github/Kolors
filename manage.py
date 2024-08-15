@@ -140,7 +140,7 @@ async def get_image(file_path: str):
     return FileResponse(image_path)
 
 
-@fastapi_app.get("/generate")
+@fastapi_app.post("/generate")
 async def generate(item: InferItem):
     images = infer(
         prompt=item.prompt,
