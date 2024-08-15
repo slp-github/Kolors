@@ -49,3 +49,5 @@ COPY . .
 
 # 安装项目
 RUN python setup.py install
+
+CMD ["python", "manage.py"]
