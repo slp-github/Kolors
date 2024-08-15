@@ -50,4 +50,4 @@ COPY . .
 # 安装项目
 RUN python setup.py install
 
-CMD ["python", "manage.py"]
+CMD ["conda", "run", "-n", "kolors", "python", "manage.py"]
