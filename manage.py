@@ -1,4 +1,5 @@
 import os
+import time
 import torch
 import gradio as gr
 import uvicorn
@@ -153,7 +154,9 @@ async def generate(item: InferItem):
         num_images_per_prompt=item.num_images_per_prompt,
     )
     data = [image.replace(root_dir, server_host + "/image") for image in images]
-    return {"code": 0, "msg": "success", "data": data}
+
+    task_id = int(time.time()*1000)
+    return {"code": 0, "msg": "success", "data": dict(id=task_id, images=data)}
 
 
 def gradio_interface():
