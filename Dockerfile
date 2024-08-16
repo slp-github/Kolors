@@ -50,4 +50,4 @@ COPY . .
 # 安装项目
 RUN python setup.py install
 
-CMD ["conda", "run", "-n", "kolors", "python", "manage.py"]
+CMD ["/bin/bash", "-c", "source activate kolors && exec python -u manage.py"]
